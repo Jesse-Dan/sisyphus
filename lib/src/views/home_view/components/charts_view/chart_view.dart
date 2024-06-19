@@ -17,6 +17,8 @@ import 'package:sisyphus/src/views/home_view/components/charts_view/chart_landsc
 import 'package:sisyphus/src/views/home_view/components/charts_view/providers/interval_provider.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
+String currentSymbol = "";
+
 class ChartView extends ConsumerStatefulWidget {
   const ChartView({Key? key}) : super(key: key);
 
@@ -31,7 +33,6 @@ class _ChartViewState extends ConsumerState<ChartView> {
   String currentInterval = "1m";
 
   List<String> symbols = [];
-  String currentSymbol = "";
   String chartView = 'Trading view';
 
   @override

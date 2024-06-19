@@ -1,17 +1,19 @@
 import 'package:color_system/color_system.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sisyphus/src/components/app_card.dart';
 import 'package:sisyphus/src/helpers/Image_viewer/image_viewer.dart';
 import 'package:sisyphus/src/utils/assets.dart';
 import 'package:sisyphus/src/utils/dimentions.dart';
+import 'package:sisyphus/src/views/home_view/components/charts_view/chart_view.dart';
 
-class TopSection extends StatelessWidget {
+class TopSection extends ConsumerWidget {
   const TopSection({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return AppCard(
       child: Column(
         children: [
@@ -22,7 +24,7 @@ class TopSection extends StatelessWidget {
                 bitcoinDollarIcons(),
                 const SizedBox(width: Dimentions.kMediumSpacing),
                 Text(
-                  'BTC/USDT',
+                  currentSymbol,
                   style: Theme.of(context)
                       .textTheme
                       .displayLarge
