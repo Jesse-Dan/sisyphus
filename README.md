@@ -19,6 +19,9 @@ This project involves designing the user interface and consuming the Binance Web
 ![Demo](https://github.com/Jesse-Dan/sisyphus/blob/main/assets/demo.gif)
 
 
+## APK
+![Demo](https://github.com/Jesse-Dan/sisyphus/blob/main/assets/app-release.apk)
+
 ## Installation
 To run this project, follow these steps:
 
