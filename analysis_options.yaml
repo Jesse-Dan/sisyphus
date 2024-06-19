@@ -1,0 +1,6 @@
+analyzer:
+  errors:
+    deprecated_member_use: ignore
+    library_private_types_in_public_api: ignore
+    must_be_immutable: ignore
+include: package:flutter_lints/flutter.yaml
