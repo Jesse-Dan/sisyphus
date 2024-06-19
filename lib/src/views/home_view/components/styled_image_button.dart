@@ -1,10 +1,10 @@
 import 'package:color_system/color_system.dart';
 import 'package:flutter/material.dart';
-import 'package:sisyphus/src/utils/components/app_image_button.dart';
+import 'package:sisyphus/src/components/app_image_button.dart';
 import 'package:sisyphus/src/utils/theme.dart';
 
 /// A reusable widget that represents an image button inside a styled container.
-/// 
+///
 /// The container's background color and border radius are customizable.
 /// When the button is pressed, it executes a specified callback function.
 class StyledImageButton extends StatelessWidget {
@@ -42,7 +42,10 @@ class StyledImageButton extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        color: isSelected ?themeColor(context, lightColor:  HexColor('#CFD3D8'), darkColor:  HexColor('#353945'))  : null,
+        color: isSelected
+            ? themeColor(context,
+                lightColor: HexColor('#CFD3D8'), darkColor: HexColor('#353945'))
+            : null,
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: AppImageButton(

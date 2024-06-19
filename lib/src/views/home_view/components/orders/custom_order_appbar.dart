@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_navigator/go/go.dart';
+import 'package:sisyphus/src/components/app_image_button.dart';
 import 'package:sisyphus/src/helpers/Image_viewer/image_viewer.dart';
 import 'package:sisyphus/src/utils/assets.dart';
-import 'package:sisyphus/src/utils/components/app_image_button.dart';
 import 'package:sisyphus/src/utils/theme.dart';
 import 'package:sisyphus/src/views/asset_view/asset_view.dart';
 

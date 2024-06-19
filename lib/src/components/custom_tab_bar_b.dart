@@ -1,7 +1,6 @@
 import 'package:color_system/color_system.dart';
 import 'package:flutter/material.dart';
-
-import '../dimentions.dart';
+import 'package:sisyphus/src/utils/dimentions.dart';
 
 class CustomTabBarB extends StatelessWidget {
   final TabController tabController;

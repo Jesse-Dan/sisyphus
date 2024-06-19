@@ -1,11 +1,9 @@
 import 'package:color_system/color_system.dart';
 import 'package:flutter/material.dart';
+import 'package:sisyphus/src/components/app_card.dart';
 import 'package:sisyphus/src/helpers/Image_viewer/image_viewer.dart';
 import 'package:sisyphus/src/utils/assets.dart';
-import 'package:sisyphus/src/utils/components/app_card.dart';
 import 'package:sisyphus/src/utils/dimentions.dart';
-
-
 
 class TopSection extends StatelessWidget {
   const TopSection({
@@ -25,12 +23,17 @@ class TopSection extends StatelessWidget {
                 const SizedBox(width: Dimentions.kMediumSpacing),
                 Text(
                   'BTC/USDT',
-                  style: Theme.of(context).textTheme.displayLarge?.copyWith(fontSize: 18),
+                  style: Theme.of(context)
+                      .textTheme
+                      .displayLarge
+                      ?.copyWith(fontSize: 18),
                 ),
                 const SizedBox(width: Dimentions.kLargeSpacing),
                 ImageViewer(
                   imagePath: AppAssets.dropdown,
-                  color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black,
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black,
                 ),
                 const SizedBox(width: Dimentions.kLargeSpacing),
                 priceText('\$20,634', HexColor('#00C076')),
@@ -39,7 +42,8 @@ class TopSection extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
-              padding: const EdgeInsets.only(top: 16.0, right: 16.0, left: 16.0),
+              padding:
+                  const EdgeInsets.only(top: 16.0, right: 16.0, left: 16.0),
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
               itemCount: Price.prices.length,
@@ -97,7 +101,9 @@ Widget priceText(String text, Color color) {
     ),
   );
 }
-Widget priceItem(String imagePath, String timeFrame, String price, Color? priceColor, BuildContext context) {
+
+Widget priceItem(String imagePath, String timeFrame, String price,
+    Color? priceColor, BuildContext context) {
   return SizedBox(
     height: 48,
     child: Column(
@@ -109,7 +115,10 @@ Widget priceItem(String imagePath, String timeFrame, String price, Color? priceC
             SizedBox(width: Dimentions.kSmallSpacing - 2),
             Text(
               timeFrame,
-              style: Theme.of(context).textTheme.displayLarge?.copyWith(color: HexColor('#A7B1BC'), fontSize: 12),
+              style: Theme.of(context)
+                  .textTheme
+                  .displayLarge
+                  ?.copyWith(color: HexColor('#A7B1BC'), fontSize: 12),
               textAlign: TextAlign.left,
             ),
           ],
@@ -117,13 +126,15 @@ Widget priceItem(String imagePath, String timeFrame, String price, Color? priceC
         SizedBox(height: Dimentions.kSmallSpacing),
         Text(
           price,
-          style: Theme.of(context).textTheme.displayLarge?.copyWith(color: priceColor, fontSize: 18),
+          style: Theme.of(context)
+              .textTheme
+              .displayLarge
+              ?.copyWith(color: priceColor, fontSize: 18),
         ),
       ],
     ),
   );
 }
-
 
 class Price {
   final String imagePath;

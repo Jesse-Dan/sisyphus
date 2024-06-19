@@ -1,10 +1,10 @@
 import 'package:color_system/color_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sisyphus/src/components/app_button.dart';
+import 'package:sisyphus/src/components/custom_text_field.dart';
 import 'package:sisyphus/src/helpers/Image_viewer/image_viewer.dart';
 import 'package:sisyphus/src/utils/assets.dart';
-import 'package:sisyphus/src/utils/components/app_button.dart';
-import 'package:sisyphus/src/utils/components/custom_text_field.dart';
 import 'package:sisyphus/src/utils/dimentions.dart';
 import 'package:sisyphus/src/utils/theme.dart';
 import 'package:sisyphus/src/views/home_view/components/buttom_actions_buttons.dart';

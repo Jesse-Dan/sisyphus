@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sisyphus/src/utils/components/app_card.dart';
-import 'package:sisyphus/src/utils/components/custom_tab_bar.dart';
-import 'package:sisyphus/src/utils/components/custom_tab_bar_b.dart';
+import 'package:sisyphus/src/components/app_card.dart';
+import 'package:sisyphus/src/components/custom_tab_bar.dart';
+import 'package:sisyphus/src/components/custom_tab_bar_b.dart';
 import 'package:sisyphus/src/utils/dimentions.dart';
 import 'package:sisyphus/src/views/home_view/components/buttom_actions_buttons.dart';
 import 'package:sisyphus/src/views/home_view/components/charts_view/chart_view.dart';
@@ -83,7 +83,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               height: 559,
               child: tabBarWidget(_tabController, _tabs, _iconTabs),
             ),
-             actionButtonsWidget(context)
+            actionButtonsWidget(context)
           ],
         ),
       ),

@@ -2,13 +2,13 @@
 
 import 'package:color_system/color_system.dart';
 import 'package:flutter/material.dart';
+import 'package:sisyphus/src/components/app_button.dart';
+import 'package:sisyphus/src/components/app_card.dart';
 import 'package:sisyphus/src/components/custom_buttom_sheet.dart';
 import 'package:sisyphus/src/helpers/Image_viewer/image_viewer.dart';
 import 'package:sisyphus/src/utils/assets.dart';
-import 'package:sisyphus/src/utils/components/app_button.dart';
-import 'package:sisyphus/src/utils/components/app_card.dart';
 import 'package:sisyphus/src/utils/dimentions.dart';
-import 'package:sisyphus/src/views/components/charts_tab_view/custom_tab_view.dart';
+import 'package:sisyphus/src/views/home_view/components/charts_tab_view/custom_tab_view.dart';
 
 import 'charts_tab_view/tabs/buy.dart';
 import 'charts_tab_view/tabs/sell.dart';

@@ -7,20 +7,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_navigator/go/go.dart';
+import 'package:sisyphus/src/components/custom_buttom_sheet.dart';
 import 'package:sisyphus/src/helpers/Image_viewer/image_viewer.dart';
 import 'package:sisyphus/src/repositories/binance_repository.dart';
 import 'package:sisyphus/src/utils/assets.dart';
-import 'package:sisyphus/src/utils/components/custom_buttom_sheet.dart';
 import 'package:sisyphus/src/utils/theme.dart';
 import 'package:sisyphus/src/views/home_view/components/charts_view/chart_view.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
-
 
 class ChartLandscapeView extends ConsumerStatefulWidget {
   static const routeName = '/ChartLandscapeView';
   const ChartLandscapeView({super.key});
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _ChartLandscapeViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _ChartLandscapeViewState();
 }
 
 class _ChartLandscapeViewState extends ConsumerState<ChartLandscapeView> {
@@ -32,7 +32,19 @@ class _ChartLandscapeViewState extends ConsumerState<ChartLandscapeView> {
   List<String> symbols = [];
 
   final landscapeIntervals = [
-    '5m', '15m', '30m', '1h', '2h', '4h', '6h', '8h', '12h', '1d', '3d', '1w', '1M',
+    '5m',
+    '15m',
+    '30m',
+    '1h',
+    '2h',
+    '4h',
+    '6h',
+    '8h',
+    '12h',
+    '1d',
+    '3d',
+    '1w',
+    '1M',
   ];
 
   @override
@@ -69,8 +81,10 @@ class _ChartLandscapeViewState extends ConsumerState<ChartLandscapeView> {
     });
 
     try {
-      final data = await repository.fetchCandles(symbol: symbol, interval: interval);
-      _channel = repository.establishConnection(symbol.toLowerCase(), currentInterval);
+      final data =
+          await repository.fetchCandles(symbol: symbol, interval: interval);
+      _channel =
+          repository.establishConnection(symbol.toLowerCase(), currentInterval);
       setState(() {
         candles = data;
         currentInterval = interval;
@@ -87,11 +101,13 @@ class _ChartLandscapeViewState extends ConsumerState<ChartLandscapeView> {
       final map = jsonDecode(snapshot.data as String) as Map<String, dynamic>;
       if (map.containsKey("k")) {
         final candleTicker = CandleTickerModel.fromJson(map);
-        if (candles[0].date == candleTicker.candle.date && candles[0].open == candleTicker.candle.open) {
+        if (candles[0].date == candleTicker.candle.date &&
+            candles[0].open == candleTicker.candle.open) {
           setState(() {
             candles[0] = candleTicker.candle;
           });
-        } else if (candleTicker.candle.date.difference(candles[0].date) == candles[0].date.difference(candles[1].date)) {
+        } else if (candleTicker.candle.date.difference(candles[0].date) ==
+            candles[0].date.difference(candles[1].date)) {
           setState(() {
             candles.insert(0, candleTicker.candle);
           });
@@ -153,7 +169,9 @@ class _ChartLandscapeViewState extends ConsumerState<ChartLandscapeView> {
       title: Padding(
         padding: const EdgeInsets.only(left: 4.0),
         child: ImageViewer(
-          imagePath: ref.watch(themeProvider) == ThemeMode.light ? AppAssets.blackLogo : AppAssets.whiteLogo,
+          imagePath: ref.watch(themeProvider) == ThemeMode.light
+              ? AppAssets.blackLogo
+              : AppAssets.whiteLogo,
           height: 34,
           width: 121,
           fit: BoxFit.contain,
@@ -193,16 +211,20 @@ class _ChartLandscapeViewState extends ConsumerState<ChartLandscapeView> {
         Expanded(
           child: ListView(
             children: symbols
-                .where((element) => element.toLowerCase().contains(symbolSearch.toLowerCase()))
+                .where((element) =>
+                    element.toLowerCase().contains(symbolSearch.toLowerCase()))
                 .map((value) => Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
                         width: 50,
                         height: 30,
                         child: RawMaterialButton(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
                           elevation: 0,
-                          fillColor: themeColor(context, lightColor: HexColor('#CFD3D8'), darkColor: HexColor('#353945')),
+                          fillColor: themeColor(context,
+                              lightColor: HexColor('#CFD3D8'),
+                              darkColor: HexColor('#353945')),
                           onPressed: () {
                             fetchCandles(value, currentInterval);
                             Navigator.of(context).pop();
@@ -211,7 +233,10 @@ class _ChartLandscapeViewState extends ConsumerState<ChartLandscapeView> {
                             padding: const EdgeInsets.only(left: 8.0),
                             child: Row(
                               children: [
-                                ImageViewer(height: 18, width: 18, imagePath: AppAssets.bitcoin),
+                                ImageViewer(
+                                    height: 18,
+                                    width: 18,
+                                    imagePath: AppAssets.bitcoin),
                                 Padding(
                                   padding: const EdgeInsets.only(left: 8.0),
                                   child: Text(
@@ -270,15 +295,21 @@ class _ChartLandscapeViewState extends ConsumerState<ChartLandscapeView> {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: currentInterval == landscapeIntervals[i]
-                                  ? themeColor(context, lightColor: HexColor('#CFD3D8'), darkColor: HexColor('#555C63'))
+                                  ? themeColor(context,
+                                      lightColor: HexColor('#CFD3D8'),
+                                      darkColor: HexColor('#555C63'))
                                   : null,
                               borderRadius: BorderRadius.circular(50)),
                           child: Text(
                             landscapeIntervals[i],
                             style: TextStyle(
                               color: currentInterval == landscapeIntervals[i]
-                                  ? themeColor(context, lightColor: HexColor('#000000'), darkColor: HexColor('#A7B1BC'))
-                                  : themeColor(context, lightColor: HexColor('#737A91'), darkColor: HexColor('#FFFFFF')),
+                                  ? themeColor(context,
+                                      lightColor: HexColor('#000000'),
+                                      darkColor: HexColor('#A7B1BC'))
+                                  : themeColor(context,
+                                      lightColor: HexColor('#737A91'),
+                                      darkColor: HexColor('#FFFFFF')),
                             ),
                           ),
                         ),
@@ -293,7 +324,9 @@ class _ChartLandscapeViewState extends ConsumerState<ChartLandscapeView> {
               ),
               ImageViewer(
                 imagePath: AppAssets.chartIcon,
-                color: themeColor(context, lightColor: HexColor('#CFD3D8'), darkColor: HexColor('#555C63')),
+                color: themeColor(context,
+                    lightColor: HexColor('#CFD3D8'),
+                    darkColor: HexColor('#555C63')),
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 12.0),
@@ -302,7 +335,9 @@ class _ChartLandscapeViewState extends ConsumerState<ChartLandscapeView> {
               Text(
                 'Fx Indicators',
                 style: TextStyle(
-                    color: themeColor(context, lightColor: HexColor('#737A91'), darkColor: HexColor('#555C63'))),
+                    color: themeColor(context,
+                        lightColor: HexColor('#737A91'),
+                        darkColor: HexColor('#555C63'))),
               ),
               const SizedBox(width: 20)
             ],

@@ -1,13 +1,13 @@
 import 'package:color_system/color_system.dart';
 import 'package:flutter/material.dart';
-
-import '../dimentions.dart';
+import 'package:sisyphus/src/utils/dimentions.dart';
 
 class CustomTabBar extends StatelessWidget {
   final TabController tabController;
   final List<Tab> tabs;
 
-  const CustomTabBar({super.key, required this.tabController, required this.tabs});
+  const CustomTabBar(
+      {super.key, required this.tabController, required this.tabs});
 
   @override
   Widget build(BuildContext context) {

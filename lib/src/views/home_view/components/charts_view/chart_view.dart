@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_navigator/go/go.dart';
+import 'package:sisyphus/src/components/app_image_button.dart';
 import 'package:sisyphus/src/components/custom_buttom_sheet.dart';
 import 'package:sisyphus/src/helpers/Image_viewer/image_viewer.dart';
 import 'package:sisyphus/src/repositories/binance_repository.dart';
 import 'package:sisyphus/src/utils/assets.dart';
-import 'package:sisyphus/src/utils/components/app_image_button.dart';
 import 'package:sisyphus/src/utils/theme.dart';
-import 'package:sisyphus/src/views/components/charts_view/providers/interval_provider.dart';
 import 'package:sisyphus/src/views/home_view/components/charts_view/chart_landscape_view/chart_landscape_view.dart';
+import 'package:sisyphus/src/views/home_view/components/charts_view/providers/interval_provider.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class ChartView extends ConsumerStatefulWidget {
@@ -280,7 +280,7 @@ class _ChartViewState extends ConsumerState<ChartView> {
       child: StreamBuilder(
         stream: _channel?.stream,
         builder: (context, snapshot) {
-          Timer.periodic( const Duration(milliseconds: 1), (timer) {
+          Timer.periodic(const Duration(milliseconds: 1), (timer) {
             updateCandlesFromSnapshot(snapshot);
           });
           return Candlesticks(

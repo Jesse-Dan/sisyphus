@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sisyphus/src/utils/components/app_card.dart';
+import 'package:sisyphus/src/components/app_card.dart';
 import 'package:sisyphus/src/utils/dimentions.dart';
+
 class OpenOrders extends StatelessWidget {
   const OpenOrders({super.key});
 

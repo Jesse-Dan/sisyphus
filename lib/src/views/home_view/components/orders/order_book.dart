@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sisyphus/src/helpers/Image_viewer/image_viewer.dart';
 import 'package:sisyphus/src/utils/assets.dart';
 import 'package:sisyphus/src/utils/theme.dart';
-import 'package:sisyphus/src/views/components/styled_image_button.dart';
-import 'package:sisyphus/src/views/providers/order_book_provider.dart';
+import 'package:sisyphus/src/views/home_view/components/styled_image_button.dart';
+import 'package:sisyphus/src/views/home_view/providers/order_book_provider.dart';
 import '../../../../utils/dimentions.dart';
 
 var selectedItemProvider = StateProvider<String?>((ref) => '10');
