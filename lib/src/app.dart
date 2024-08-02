@@ -15,7 +15,7 @@ class App extends ConsumerWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeMode,
-      onGenerateRoute: (settings) => AppRoutes.buildRoutes(settings),
+      onGenerateRoute: AppRoutes.buildRoutes,
       debugShowCheckedModeBanner: false,
     );
   }
