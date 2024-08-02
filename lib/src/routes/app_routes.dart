@@ -12,7 +12,7 @@ abstract class AppRoutes {
           '/': (context, args) => const HomeView(),
           ChartLandscapeView.routeName: (context, args) =>
               const ChartLandscapeView(),
-          AssetsView.routeName: (context, args) => const AssetsView()
+          AssetsView.routeName: (context, args) => const AssetsView(),
         },
       ).generateRoute(settings);
 }
